@@ -71,3 +71,14 @@ export function useRuneValue<T>(rune: IRune<T>): T {
 
   return value
 }
+
+
+export function useSetRune<T>(rune: IRune<T>): (value: T) => void {
+  const [, setValue] = useState(rune.get())
+
+  useEffect(() => {
+    rune.subscribe(setValue)
+  }, [rune])
+
+  return rune.set
+}
