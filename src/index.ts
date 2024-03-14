@@ -13,7 +13,7 @@ type Getter<T> = (get: <K>(r: IRune<K>) => K) => T
  * @param value - the initial value of the rune
  * @returns a new rune that wraps the given value
  */
-export function rune<T>(value: T | Getter<T> | null): IRune<T> {
+export function rune<T>(value: T | Getter<T>): IRune<T> {
   function get<K>(rune: IRune<K>): K {
     return rune.get();
   }
