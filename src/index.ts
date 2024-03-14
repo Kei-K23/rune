@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 
 interface IRune<T> {
   get: () => T
@@ -43,4 +44,20 @@ export function rune<T>(value: T | Getter<T> | null): IRune<T> {
       subscribers.add(callback)
     }
   }
+}
+
+
+/**
+React hook for subscribing to a rune and keeping its value in state.
+@param rune - the rune to subscribe to
+@returns an array containing the current value of the rune and a setter function for updating the value
+ */
+export function useRune<T>(rune: IRune<T>): [T, (value: T) => void] {
+  const [value, setValue] = useState(rune.get())
+
+  useEffect(() => {
+    rune.subscribe(setValue)
+  }, [rune])
+
+  return [value, rune.set]
 }
