@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -30,16 +30,16 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "rune",
+    "name": "react-runejs",
     "author": "Kei-K23",
-    "module": "dist/rune.esm.js",
+    "module": "dist/react-runejs.esm.js",
     "size-limit": [
         {
-            "path": "dist/rune.cjs.production.min.js",
+            "path": "dist/react-runejs.cjs.production.min.js",
             "limit": "10 KB"
         },
         {
-            "path": "dist/rune.esm.js",
+            "path": "dist/react-runejs.esm.js",
             "limit": "10 KB"
         }
     ],
